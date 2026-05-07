@@ -1,0 +1,40 @@
+{
+  "name": "copy-code-path",
+  "displayName": "Copy Code Path",
+  "description": "复制选中代码的文件路径和行号到剪贴板",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-code-path.copyPath",
+        "title": "Copy Code Path with Line Numbers"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "copy-code-path.copyPath",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^8.0.0"
+  }
+}
