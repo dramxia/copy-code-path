@@ -31,18 +31,25 @@ function activate(context) {
             }
         }
 
-        // 获取选中的行号（VSCode 行号从 0 开始，需要 +1）
-        const startLine = selection.start.line + 1;
-        const endLine = selection.end.line + 1;
-
         // 构建路径字符串
         let pathString;
-        if (startLine === endLine) {
-            // 单行选择
-            pathString = `@${relativePath}#L${startLine}`;
+
+        // 检查是否有实际选中的内容
+        if (selection.isEmpty) {
+            // 没有选中内容，只复制文件路径
+            pathString = `@${relativePath}`;
         } else {
-            // 多行选择
-            pathString = `@${relativePath}#L${startLine}-${endLine}`;
+            // 有选中内容，包含行号
+            const startLine = selection.start.line + 1;
+            const endLine = selection.end.line + 1;
+
+            if (startLine === endLine) {
+                // 单行选择
+                pathString = `@${relativePath}#L${startLine}`;
+            } else {
+                // 多行选择
+                pathString = `@${relativePath}#L${startLine}-${endLine}`;
+            }
         }
 
         // 复制到剪贴板
