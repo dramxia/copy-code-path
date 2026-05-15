@@ -54,11 +54,20 @@ function activate(context) {
 
         // 复制到剪贴板
         vscode.env.clipboard.writeText(pathString).then(() => {
-            vscode.window.showInformationMessage(`已复制: ${pathString}`);
+            showStatusBarMessage(`已复制: ${pathString}`);
         });
     });
 
     context.subscriptions.push(disposable);
+}
+
+function showStatusBarMessage(text) {
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
+    statusBarItem.text = `$(check) ${text}`;
+    statusBarItem.show();
+    setTimeout(() => {
+        statusBarItem.dispose();
+    }, 3000);
 }
 
 function deactivate() {}

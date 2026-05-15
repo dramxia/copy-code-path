@@ -2,7 +2,7 @@
   "name": "copy-code-path",
   "displayName": "Copy Code Path",
   "description": "复制选中代码的文件路径和行号到剪贴板",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.80.0"
   },
