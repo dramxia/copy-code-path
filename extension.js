@@ -52,9 +52,11 @@ function activate(context) {
             }
         }
 
-        // 复制到剪贴板
-        vscode.env.clipboard.writeText(pathString).then(() => {
-            showStatusBarMessage(`已复制: ${pathString}`);
+        // 复制到剪贴板时默认在路径后追加一个空格，便于继续输入内容
+        const clipboardText = `${pathString} `;
+
+        vscode.env.clipboard.writeText(clipboardText).then(() => {
+            showStatusBarMessage(`已复制: ${clipboardText}`);
         });
     });
 
