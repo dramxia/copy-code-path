@@ -21,7 +21,7 @@
 
 1. 在编辑器中选中需要引用的代码（可选）
 2. 按快捷键：
-   - **Windows/Linux**: `Ctrl+Shift+C`
+   - **Windows/Linux**: `Ctrl+Alt+C`
    - **macOS**: `Cmd+Shift+C`
 3. 路径已自动复制到剪贴板
 
